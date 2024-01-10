@@ -14,8 +14,8 @@ TagManager:
   - Item
   - Wall
   - Player
-  - 
-  - 
+  - Spike
+  - WeaponArrow
   - 
   - 
   - 
@@ -50,6 +50,15 @@ TagManager:
   - name: Wall
     uniqueID: 2010068941
     locked: 0
+  - name: Spike
+    uniqueID: 2420835857
+    locked: 0
+  - name: Health
+    uniqueID: 3708156749
+    locked: 0
   - name: Player
     uniqueID: 1820078893
+    locked: 0
+  - name: Weapon
+    uniqueID: 2588483589
     locked: 0
