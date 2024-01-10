@@ -49,6 +49,12 @@ public class PlayerController : MonoBehaviour
         {
             Shoot();
         }
+        if (Input.GetMouseButtonDown(0)) {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0;
+            Vector2 direction = (mousePosition - transform.position).normalized;
+            Shoot(direction);
+        }
     }
     void FixedUpdate()
     {
@@ -78,5 +84,18 @@ public class PlayerController : MonoBehaviour
         GameObject weaponArrowObject = Instantiate(weaponArrowPrefab, spawnPosition, Quaternion.identity);
         WeaponArrow weaponArrow = weaponArrowObject.GetComponent<WeaponArrow>();
         weaponArrow.Launch(launchDirection, 300);
+    }
+    void Shoot(Vector2 direction) {
+        WeaponBow weaponBow = GetComponentInChildren<WeaponBow>();
+        if (weaponBow != null)
+        {
+            weaponBow.Shoot();
+            float bowRotationAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            weaponBow.transform.rotation = Quaternion.AngleAxis(bowRotationAngle, Vector3.forward);
+        }
+        Vector2 spawnPosition = rigidbody2D.position + Vector2.down * 0.5f;
+        GameObject weaponArrowObject = Instantiate(weaponArrowPrefab, spawnPosition, Quaternion.identity);
+        WeaponArrow weaponArrow = weaponArrowObject.GetComponent<WeaponArrow>();
+        weaponArrow.Launch(direction, 300);
     }
 }
