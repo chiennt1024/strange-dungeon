@@ -16,9 +16,9 @@ TagManager:
   - Player
   - Spike
   - WeaponArrow
-  - 
-  - 
-  - 
+  - Mob
+  - Confiner
+  - Projectile
   - 
   - 
   - 
@@ -61,4 +61,10 @@ TagManager:
     locked: 0
   - name: Weapon
     uniqueID: 2588483589
+    locked: 0
+  - name: Mob
+    uniqueID: 3862685473
+    locked: 0
+  - name: Projectile
+    uniqueID: 781701985
     locked: 0

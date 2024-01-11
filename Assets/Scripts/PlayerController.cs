@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 5;
     int currentHealth;
     public int health { get { return currentHealth; } }
-    WeaponBow weaponBow;
 
     void Start()
     {
