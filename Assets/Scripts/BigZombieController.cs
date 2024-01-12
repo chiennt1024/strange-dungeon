@@ -11,7 +11,11 @@ public class BigZombieController : MonoBehaviour
     public GameObject bulletSpawn;
     private Transform player;
     private Vector2 previousPosition;
+    Vector2 moveDirection = new Vector2(1, 0);
     Animator animator;
+    Rigidbody2D bigZombieRB;
+    private float spawnRate = 1f;
+    private float timePerSpawn = 2f;
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -23,9 +27,10 @@ public class BigZombieController : MonoBehaviour
     void Update()
     {
         float distanceFromPlayer = Vector2.Distance(player.position, transform.position);
-        if(distanceFromPlayer <= shootingRange) {
-            Debug.Log("Shoot");
-            Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
+        moveDirection = (player.position - transform.position).normalized;
+        if(distanceFromPlayer <= shootingRange && timePerSpawn < Time.time) {
+            Shoot();
+            timePerSpawn = Time.time + spawnRate;
         }
         if(distanceFromPlayer > lineOfSite || distanceFromPlayer < shootingRange) {
             animator.SetBool("isMoving", false);
@@ -34,11 +39,19 @@ public class BigZombieController : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         bool isMoving = Vector2.Distance(transform.position, previousPosition) > 0.001f;
         if(isMoving) {
-            float movementDirection = transform.position.x - previousPosition.x;
-            animator.SetFloat("Look X", movementDirection);
+            float horizontalMovementDirection = transform.position.x - previousPosition.x;
+            animator.SetFloat("Look X", horizontalMovementDirection);
         }
         animator.SetBool("isMoving", isMoving);
         previousPosition = transform.position;
+    }
+
+    void Shoot() {
+        Vector2 shootDirection = moveDirection.normalized;
+        Vector2 spawnPosition = bulletSpawn.transform.position;
+        GameObject bulletObject = Instantiate(bullet, spawnPosition, Quaternion.identity);
+        BulletController bulletController = bulletObject.GetComponent<BulletController>();
+        bulletController.Launch(shootDirection, 300);
     }
 
     private void OnDrawGizmosSelected() {
