@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3246bad1325680438bf600df22b71ff
-      internalID: -815548384
+      spriteID: f0444eead9e1944debef25c339db399f
+      internalID: 539104779
       vertices: []
       indices: 
       edges: []
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bf421e4ad526d44b8a42f55ba5347c4
-      internalID: 1586720758
+      spriteID: 5e6d6804a875542a0b44a5847b80f1e1
+      internalID: -399608540
       vertices: []
       indices: 
       edges: []
@@ -175,8 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tile_9_0: -815548384
-      tile_9_1: 1586720758
+      tile_9_0: 539104779
+      tile_9_1: -399608540
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
