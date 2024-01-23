@@ -53,6 +53,9 @@ TagManager:
   - name: Waterfall
     uniqueID: 2610336109
     locked: 0
+  - name: Cliff
+    uniqueID: 2353727297
+    locked: 0
   - name: Decoration
     uniqueID: 3634751055
     locked: 0
