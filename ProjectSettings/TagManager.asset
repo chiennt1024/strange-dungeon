@@ -19,7 +19,7 @@ TagManager:
   - Mob
   - Confiner
   - Projectile
-  - 
+  - Effect
   - 
   - 
   - 
@@ -82,4 +82,7 @@ TagManager:
     locked: 0
   - name: Projectile
     uniqueID: 781701985
+    locked: 0
+  - name: Effect
+    uniqueID: 2602338189
     locked: 0
